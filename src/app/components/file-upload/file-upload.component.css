@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+  input[type="file"]{
+    display:none;
+  }
+  .file-input {
+    display: none;
+  }
+
+  .preview img{
+    display: inline-block;
+    align-items: center;
+    align-content: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 3px;
+  }
+
+  .merge-button{
+    align-self: center;
+  }
+  .file-upload-div{
+    text-align: center;
+  }

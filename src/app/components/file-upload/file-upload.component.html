@@ -1,0 +1,31 @@
+    <div appDropzone style="height: 70%;position: relative;top: 20%; border: 1px dashed black; left:13%"  (onFileDropped)="droppedFiles($event)">
+        <mat-progress-bar *ngIf="uploadComplete==false" mode="indeterminate"></mat-progress-bar>
+        <div >
+            <input type="file" class="file-input"
+            (change)="onFileSelected($event)" multiple #fileUpload>
+     
+            <div class="file-upload-div" style="align-items: center;">
+               <button style="transform: scale(1);" mat-mini-fab color="primary"
+                  (click)="fileUpload.click()">
+                  <mat-icon>attach_file</mat-icon>
+               </button>
+               Click to upload files 
+            </div>
+        </div>
+            <!--droped image preview-->
+        <div *ngIf="infilesOnServer" style="align-items: center;width: auto;border: 1px solid black;text-align: center;">
+            <div style="display: inline-block;" *ngFor="let fos of infilesOnServer">
+                <img *ngIf="fos" [src]="fos.fileUrl" width="100px" height="100px" title={{fos.name}}>
+            </div>
+        </div>    
+        <div *ngIf="infilesOnServer && infilesOnServer.length > 1 && uploadComplete==true" style="text-align: center; z-index: 999;position: relative;">
+          <h1 *ngIf="infilesOnServer &&  infilesOnServer.length > 10" style = "text-align: center; color: red;"> Files more than 10 </h1>  
+          <button *ngIf="infilesOnServer &&  infilesOnServer.length <= 10" style="transform: scale(1);" (click)="mergeFiles()">
+             Merge Files
+          </button>
+        </div>
+        <div style="display: block; position: absolute; top: 40%;text-align: center; width: 100%;opacity: 0.3;">
+            <h1>OR</h1>
+            <h4>Drop files here</h4>
+        </div>
+    </div>

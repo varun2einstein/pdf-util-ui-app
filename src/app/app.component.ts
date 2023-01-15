@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pdf-util-ui-app';
-}
+
+  data = {
+    title : "Welcome home"
+  };
+
+  onLogoClicked(){
+    alert("logo clicked");
+  }
+
+  onKeyUp(newTitle: string){
+    this.data.title = newTitle;
+  }
+   }
