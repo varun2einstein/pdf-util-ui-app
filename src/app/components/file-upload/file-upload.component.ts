@@ -87,6 +87,7 @@ export class FileUploadComponent {
   }
 
   droppedFiles(event: FileList| null): void {
+    this.uploadComplete = false;
     if(this.validateFilesInput(event!)){
       if(event && event.length >0){
         const fileCount = event.length;
