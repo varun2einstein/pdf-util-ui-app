@@ -65,6 +65,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port":80
+          },
           "configurations": {
             "production": {
               "browserTarget": "pdf-util-ui-app:build:production"
