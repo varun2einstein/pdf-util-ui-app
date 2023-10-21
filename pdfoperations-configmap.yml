@@ -1,0 +1,7 @@
+apiVersion: "v1"
+kind: "ConfigMap"
+metadata:
+  name: "pdfoperations-configmap"
+data:
+  pdf-service-url: "http://127.0.0.1:8080"
+

@@ -1,0 +1,28 @@
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "pdf-service-ui"
+  namespace: "default"
+  labels:
+    app: "pdf-service-ui"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "pdf-service-ui"
+  template:
+    metadata:
+      labels:
+        app: "pdf-service-ui"
+    spec:
+      containers:
+      - name: "pdfoperations-ui-sha256-1"
+        image: "varun2einstein/pdfoperations-ui"
+        ports:
+        - containerPort: 80
+        env:
+        - name: PdfAPIKey
+          valueFrom:
+            configMapKeyRef:
+              name: "pdfoperations-configmap"
+              key: "pdf-service-url"
